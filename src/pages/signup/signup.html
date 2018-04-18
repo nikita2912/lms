@@ -1,0 +1,50 @@
+<ion-header no-border>
+</ion-header>
+
+<ion-content no-bounce padding class="no-scroll">
+
+  <form [formGroup]="credentialsForm" >
+    <ion-item>
+      <ion-label floating>First Name</ion-label>
+      <ion-input [formControl]="credentialsForm.controls['firstname']"
+          type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label floating>Last Name</ion-label>
+        <ion-input [formControl]="credentialsForm.controls['lastname']"
+            type="text"></ion-input>
+      </ion-item>
+    <ion-item>
+      <ion-label floating>Phone No.</ion-label>
+      <ion-input [formControl]="credentialsForm.controls['phone']"
+          type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input [formControl]="credentialsForm.controls['email']"
+          type="email"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label floating>User Name</ion-label>
+        <ion-input [formControl]="credentialsForm.controls['uname']"
+            type="text"></ion-input>
+      </ion-item>
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input [formControl]="credentialsForm.controls['password']"
+          type="password"></ion-input>
+    </ion-item>
+
+    <ion-row class="sign-in-button-container">
+      <ion-col text-center>
+        <button ion-button block color="secondary"
+            [disabled]="!credentialsForm.valid" (click)="onSignIn()">
+          Register
+        </button>
+      </ion-col>
+    </ion-row>
+
+  </form>
+
+</ion-content>

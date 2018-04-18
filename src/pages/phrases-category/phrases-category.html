@@ -1,0 +1,35 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Phrases Category</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding class="no-scroll">
+  <ion-grid>
+    
+    <ion-row >
+      <ion-col (click)="basic()">
+        <div class="div3" >
+         <p >Basic</p >
+        </div>
+       </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col (click)="goToInt()" >
+        <div class="div3" >
+         <p >Intermediate</p >
+        </div>
+       </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col (click)="goToAdv()" >
+        <div class="div3" >
+         <p >Advance</p >
+        </div>
+       </ion-col>
+    </ion-row>
+  </ion-grid>
+ 
+</ion-content>

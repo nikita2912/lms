@@ -1,0 +1,23 @@
+page-login {
+ form{
+     width: 80%;
+     margin: auto;
+     margin-top:30%!important;
+     border: 1px thistle solid;
+     padding: 10px;
+ }
+ .item-md{
+     padding: 0px;
+ }
+ .label-md {
+    margin: 4px 8px 3px 14px;
+}
+.validator-error{
+    color: crimson;
+    
+}
+}
+ion-content{
+    background-image: url(../assets/imgs/Background.png);
+    background-size: 100% 100%;
+}

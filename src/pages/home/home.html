@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+   Menu
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<!-- <ion-content padding>
+  <div>
+    <ion-row *ngFor="let m of menus">
+      <div class="mcol" (click)="menuDetails(m)" >
+        <img src="{{m.menu_image}}"/>
+
+        <p >{{m.title}}</p >
+
+     </div>
+    </ion-row>
+  </div>
+</ion-content> -->
+<ion-content padding>
+  <div style="margin: 15px">
+    <ion-row>
+      <ion-col class="div1" (click)="menuDetails(up)" >
+        <ion-card>
+          <img src="{{up?.menu_image}}"/>
+          <p >{{up?.title}}</p>
+        </ion-card>
+      </ion-col>
+      <ion-col col-6 class="div2" (click)="menuDetails(ip)">
+        <ion-card>
+          <img src="{{ip?.menu_image}}"/>
+          <p>{{ip?.title}}</p>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row  class="div3" (click)="menuDetails(p)">
+      <ion-col>
+        <ion-card>
+          <img src="{{p?.menu_image}}"/>
+          <p>{{p?.title}}</p> 
+        </ion-card>
+      </ion-col>      
+    </ion-row>
+    <ion-row>
+      <ion-col class="div4" (click)="menuDetails(sp)" >
+        <ion-card>
+          <img src="{{sp?.menu_image}}"/>
+          <p>{{sp?.title}}</p >
+        </ion-card>
+      </ion-col>
+      <ion-col class="div5" (click)="menuDetails(ug)">
+        <ion-card>
+          <img src="{{ug?.menu_image}}"/>
+          <p>{{ug?.title}}</p>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </div>
+
+</ion-content>

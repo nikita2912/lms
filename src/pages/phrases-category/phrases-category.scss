@@ -1,0 +1,43 @@
+page-phrases-category {
+    .div3{
+        color: white;
+        padding: 6% 0px 6% 0px; 
+        text-align: center;
+        background-color:rgb(255, 171, 74);
+        border-radius: 6px;
+        height:100%!important;
+        ion-row{
+            height: 100%!important;
+        }
+    }
+    .inside-text {
+      
+      }
+    .shape {
+        margin: auto;
+    }
+    /*.one {
+        margin-top: 5px;
+        width: 0;
+        height: 0;
+        border-left: 45px solid transparent;
+        border-right: 45px solid transparent;
+        border-bottom: 100px solid #9E9E9E;
+    }*/
+    .two {
+        margin-top: 5px;
+        border-bottom: 89px solid #6CC9EA;
+        border-left: 40px solid transparent;
+        border-right: 40px solid transparent;
+        height: 0;
+        width: 170px;
+    }
+    .three {
+        margin-top: 5px;
+        border-bottom: 100px solid #1DB259;
+        border-left: 42px solid transparent;
+        border-right: 42px solid transparent;
+        height: 0;
+        width: 254px;
+    }
+}
