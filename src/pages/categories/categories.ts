@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NetworkServicesProvider } from '../../providers/network-services/network-services';
-
+import { TabPage } from '../tab/tab';
 /**
  * Generated class for the CategoriesPage page.
  *
@@ -39,6 +39,7 @@ export class CategoriesPage {
   	let data = {user_id:this.user_id, record_id:cat.menuId, record_type:'category'}
   	this.network.getData(data).subscribe(data=>{
   		console.log('Data in Category is'+JSON.stringify(data));
+      this.navCtrl.push(TabPage,{item:data.results, user_id:this.user_id});
 
   	},err =>{
   		console.log('Error is'+ err);

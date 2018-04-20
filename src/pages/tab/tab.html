@@ -5,7 +5,7 @@
 </ion-header>
  <ion-content padding class="no-scroll">
 	<ion-tabs tabsPlacement="top">
-	  <ion-tab [root]="tab1Root" tabTitle="Phrases" ></ion-tab>
+	  <ion-tab [root]="tab1Root" [rootParams]="navParams.data" tabTitle="Phrases" ></ion-tab>
 	  <ion-tab [root]="tab2Root" tabTitle="Search"></ion-tab>
 	  <ion-tab [root]="tab3Root" tabTitle="Favourites"></ion-tab>
 	</ion-tabs>

@@ -10,11 +10,12 @@ import { FavoritesPage } from '../../pages/favorites/favorites';
   templateUrl: 'tab.html',
 })
 export class TabPage {
-
+  phrases;
   tab1Root = PhrasesPage;
   tab2Root = SearchPage;
   tab3Root = FavoritesPage;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.phrases = this.navParams.get('item');
   }
 
   ionViewDidLoad() {

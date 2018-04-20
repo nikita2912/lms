@@ -6,45 +6,40 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { LoginPage } from '../pages/login/login';
-import { SignupPage } from '../pages/signup/signup';
-import { DashboardPage } from '../pages/dashboard/dashboard';
-import { PhrasesPage } from '../pages/phrases/phrases';
-import { FavoritesPage } from '../pages/favorites/favorites';
-import { SearchPage } from '../pages/search/search';
+import { LoginPageModule } from '../pages/login/login.module';
+import { SignupPageModule } from '../pages/signup/signup.module';
+import { DashboardPageModule } from '../pages/dashboard/dashboard.module';
+import { PhrasesPageModule } from '../pages/phrases/phrases.module';
+import { FavoritesPageModule } from '../pages/favorites/favorites.module';
+import { SearchPageModule } from '../pages/search/search.module';
 import { CategoriesPageModule } from '../pages/categories/categories.module';
 import { NetworkServicesProvider } from '../providers/network-services/network-services';
-/*import { AlertController } from 'ionic-angular';*/
-
-//Providers
-/*import { Popover } from 'ionic-angular/components/popover/popover';*/
 import { AlertServiceProvider } from '../providers/alert-service/alert-service';
 import { ToasterProvider } from '../providers/toaster/toaster';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
-import { ForgetpassPage } from '../pages/forgetpass/forgetpass';
-import { TabPage } from '../pages/tab/tab';
-import { ChaptersPage } from '../pages/chapters/chapters';
+import { ForgetpassPageModule } from '../pages/forgetpass/forgetpass.module';
+import { TabPageModule } from '../pages/tab/tab.module';
+import { ChaptersPageModule } from '../pages/chapters/chapters.module';
 
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,LoginPage,SignupPage,DashboardPage,
-    PhrasesPage,FavoritesPage,SearchPage,ForgetpassPage,TabPage,ChaptersPage
+    HomePage,
   ],
   imports: [
     BrowserModule,
     HttpModule, HttpClientModule,
-    HttpClientJsonpModule,
-    CategoriesPageModule,
+    HttpClientJsonpModule,LoginPageModule,SignupPageModule,DashboardPageModule,
+    CategoriesPageModule,PhrasesPageModule,FavoritesPageModule,SearchPageModule,
+    ChaptersPageModule,ForgetpassPageModule,TabPageModule,
     IonicModule.forRoot(MyApp,{ scrollAssist: false, autoFocusAssist: false })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,LoginPage,SignupPage,DashboardPage,
-    PhrasesPage,FavoritesPage,SearchPage,ForgetpassPage,TabPage,ChaptersPage
+    HomePage
   ],
   providers: [
     StatusBar,ToasterProvider,
