@@ -3,7 +3,8 @@ import { NavController, NavParams} from 'ionic-angular';
 /*import { DashboardPage } from '../dashboard/dashboard';*/
 import { CategoriesPage } from '../categories/categories';
 import { NetworkServicesProvider } from '../../providers/network-services/network-services';
-
+import { UtilityProvider } from '../../providers/utility/utility';
+import { AdsPage } from '../../pages/ads/ads';
 
 @Component({
   selector: 'page-home',
@@ -16,7 +17,7 @@ export class HomePage {
 //  menus = {title:'' }
   constructor(
     public navCtrl: NavController,
-    private navParams:NavParams,
+    private navParams:NavParams,public utility: UtilityProvider,
     private network:NetworkServicesProvider) {
       this.user_id = this.navParams.get('userId');
       let datas = {user_id:this.user_id}
@@ -39,10 +40,10 @@ export class HomePage {
             }else{
               this.ug = this.menu[i];
             }
-            console.log('inside for If'+JSON.stringify(this.menus));
+            console.log('Menu'+JSON.stringify(this.menus));
           }else{
             this.ads.push(this.menu[i]);
-            console.log('inside for Else'+JSON.stringify(this.ads));
+            console.log('ADS'+JSON.stringify(this.ads));
           }
         }
 
@@ -54,12 +55,13 @@ export class HomePage {
     console.log('HomePage');
   }
   menuDetails(m){
+    this.utility.showLoader('Logging in...')
     //assume recordId is menuId
     let data = {user_id:this.user_id, record_id:m.menuId, record_type:'menu'}
     this.network.getData(data).subscribe(data=>{
-      console.log('getMenus Data Response'+JSON.stringify(data));
       //this.navCtrl.push();
-        this.navCtrl.push(CategoriesPage,{item:data.results, user_id:this.user_id});
+      this.utility.hideLoader();
+        this.navCtrl.push(CategoriesPage,{item:data.results,clickedMenu:m, user_id:this.user_id});
 /*      if(m.title == 'Useful Phrases'){
         this.navCtrl.push(CategoriesPage,{item:data.results});
       }else if(m.title == 'Idioms & proverbs'){
@@ -72,20 +74,9 @@ export class HomePage {
         console.log('Invalid Menu');*/
     });
   }
-/*  goTophrases(){
-    this.navCtrl.push(PhrasesCategoryPage); 
-  }
-  idomsphrases()
-  {
-  	this.navCtrl.push(PhrasesCategoryPage);
-  }
-  picphrases(){
-  	this.navCtrl.push(PhrasesCategoryPage);
-   }
-  sephrases(){
-  	this.navCtrl.push(PhrasesCategoryPage);
-   }
-  ugphrases(){
-  	this.navCtrl.push(PhrasesCategoryPage);
-   }*/
+    menu1(){
+                this.navCtrl.push(AdsPage);
+
+    }
+
 }

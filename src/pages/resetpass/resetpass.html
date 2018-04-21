@@ -8,9 +8,14 @@
 	 
   <form [formGroup]= "credentialsForm" >	
 	 <ion-item>
-      <ion-label floating>Phone No.</ion-label>
-      <ion-input [formControl]="credentialsForm.controls['userinput']"
+      <ion-label floating>Enter OTP</ion-label>
+      <ion-input [formControl]="credentialsForm.controls['otp']"
           type="number"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Enter New Password</ion-label>
+      <ion-input [formControl]="credentialsForm.controls['password']"
+          type="password"></ion-input>
     </ion-item>
    	 <!-- <ion-row class="sign-in-button-container">
       <ion-col text-center>
@@ -20,7 +25,7 @@
       </ion-col>
     </ion-row> -->
         <button ion-button block color="secondary"
-            [disabled]="!credentialsForm.valid" (click)="submit()">
+            [disabled]="!credentialsForm.valid" (click)="resetPassword()">
           Submit
         </button>
     </form>

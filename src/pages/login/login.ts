@@ -19,6 +19,7 @@ import { SignupPage } from '../../pages/signup/signup';
 /*import { PhrasesCategoryPage } from '../phrases-category/phrases-category';*/
 import { ForgetpassPage } from '../forgetpass/forgetpass';
 import { HomePage } from '../home/home';
+import { UtilityProvider } from '../../providers/utility/utility';
 
 /**
  * Generated class for the LoginPage page.
@@ -39,17 +40,18 @@ export class LoginPage {
               public navParams: NavParams,public platform: Platform,
               private formBuilder: FormBuilder,
               public network: NetworkServicesProvider,
+              public utility: UtilityProvider,
               public alertService: AlertServiceProvider, public alertCtrl: AlertController,
               public toasterService: ToasterProvider) {
 
     this.credentialsForm = this.formBuilder.group({
       email: [
-        '', Validators.compose([
+        'manoj', Validators.compose([
           Validators.required
         ])
       ],
       password: [
-        '', Validators.compose([
+        'Pass@1234', Validators.compose([
           Validators.required
         ])
       ]
@@ -76,7 +78,7 @@ export class LoginPage {
  
 }
   login() {
-  
+    this.utility.showLoader('Logging in...')
         this.network.login(this.credentialsForm.value).subscribe(data=>{
           console.log('Sign In data'+JSON.stringify(data));
           if(data.status==="SUCCESS"){
@@ -85,11 +87,14 @@ export class LoginPage {
             console.log(JSON.stringify(data.userDetails));
             console.log(user.userId);
             //alert(user.userId);
-            this.navCtrl.push(HomePage,{userId:user.userId});
+            this.utility.hideLoader();
+            this.navCtrl.setRoot(HomePage,{userId:user.userId});
           }else{
+            this.utility.hideLoader();
             alert(data.message);
           }
         },err=>{
+          this.utility.hideLoader();
           console.log('Error is '+ JSON.stringify(err));
         });
   }

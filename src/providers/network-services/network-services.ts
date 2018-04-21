@@ -49,6 +49,18 @@ export class NetworkServicesProvider {
       catchError(this.handleError));
 
   }
+
+  submit(data){
+        return this.httpC.post(this.url+'/users/forgot_password', JSON.stringify(data), httpOptions).pipe(
+          catchError(this.handleError));
+
+  }
+
+  resetPassword(data){
+        return this.httpC.post(this.url+'/users/reset_password', JSON.stringify(data), httpOptions).pipe(
+          catchError(this.handleError));
+
+  }
 /*
   postSignupService(fName, lName,email,phone,uname,pass): Promise<any> {
 
